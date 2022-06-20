@@ -2,8 +2,7 @@
 
 Criei esse repositório com intuito de fazer a documentação dos meus estudos pra conseguir fixar melhor o conteúdo que to aprendendo.
 
-Essa ta sendo a minha caminhada zero to hero com estudos focado em desenvolvimento web.
-Comecei meus estudo no inicio de 2022, antes disso não tinha noção nenhuma de como funcionava essa área de programação e desenvolvimento.
+Essa ta sendo a minha jornada zero to hero com estudos focado em desenvolvimento web, principalmente em backend.
 
 Vou atualizando o repositório conforme meus estudos vão progredindo.
 
