@@ -2,7 +2,7 @@
 
 Criei esse repositório com intuito de fazer a documentação dos meus estudos pra conseguir fixar melhor o conteúdo que to aprendendo.
 
-Essa ta sendo a minha jornada zero to hero com estudos focado em desenvolvimento web, principalmente em backend.
+Essa ta sendo a minha jornada zero to hero com estudos focado em Python, principalmente em backend.
 
 Vou atualizando o repositório conforme meus estudos vão progredindo.
 
