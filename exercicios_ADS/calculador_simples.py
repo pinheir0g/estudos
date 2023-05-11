@@ -3,4 +3,4 @@
 # Exiba na tela o resultado da operação.
 
 print('Hello, World!')
-print('Python')
+print('Python 3')
