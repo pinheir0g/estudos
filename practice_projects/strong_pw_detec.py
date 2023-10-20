@@ -17,7 +17,6 @@ if it is not strong, ask to enter a new password within the necessary parameters
 """
 import re
 
-
 def strong_passwd():
     """
     Verify if the password received is strong
