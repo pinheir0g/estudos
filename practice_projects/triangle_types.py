@@ -1,7 +1,10 @@
-"""Algoritmo para dizer se é um triangulo válido e qual o seu tipo:
-Equilátero — Todos os lados iguais
-Isósceles — Pelo menos um lado diferente
-Escaleno — Todos os lados diferentes
+#!/usr/bin/env python3
+
+"""Types of Triangles
+Algorithm to tell if it is a valid triangle and what type it is:
+Equilateral - All sides equal
+Isosceles - At least one side different
+Scalene - All sides different
 """
 # Entrada dos dados
 l1 = int(input('L1: '))

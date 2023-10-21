@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 
-"""Hello World Multi Linguas
+"""Hello World Multi Languages
 
-Dependendo da lingua configurada no ambiente o programa exibe a mensagem  
-correspondente.
+Depending on the language configured in the environment, the program displays the corresponding message.
 
 How to use:
-Tenha a variavel LANG devidamente configurada ex:
+Have the LANG variable properly configured 
+Ex:
     export LANG=pt_BR
 
-Execução:
+Execution:
     python3 hello.py
 """
 __version__ = "0.0.1"
@@ -17,8 +17,6 @@ __author__ = "Gustavo Pinheiro"
 __license__ = "Unlicense"
 
 import os
-
-
 
 current_language = os.getenv("LANG", "en_US")[:5]
 

@@ -2,7 +2,7 @@
 # date_detection.py Finds dates in a text
 
 """
-What my program need to do:
+What this program need to do:
 1. Get the text
 2. Find all dates in the text
 3. Display matched strings in the screen
@@ -20,7 +20,6 @@ import re
 
 def date_detection(text):
     """
-
     :param text: Text where the dates will be searched
     :return: A list of the matching dates
     """
