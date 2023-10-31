@@ -12,7 +12,7 @@ Ex:
 Execution:
     python3 hello.py
 """
-__version__ = "0.0.1"
+__version__ = "0.1.2"
 __author__ = "Gustavo Pinheiro"
 __license__ = "Unlicense"
 
@@ -20,19 +20,15 @@ import os
 
 current_language = os.getenv("LANG", "en_US")[:5]
 
-msg = "Hello, World!"
+msg = {"en_US": "Hello, World!",
+       "pt_BR": "Olá Mundo!",
+       "it_IT": "Ciao Mondo!",
+       "es_SP": "Hola, Mundo!",
+       "ja_JP": "Konnichiwa, Sekai!",
+       "fr_FR": "Bonjou, Monde!",
+       "mn_MN": "Sain baina uu, delkhi!",
+       "zh_CN": "Nǐ hǎo, shìjiè!"
+       }
 
-if current_language == "pt_BR":
-    msg = "Olá, Mundo!"
-elif current_language == "ja_JP":
-    msg = " Konnichiwa, Sekai (こんにちは、世界)"
-elif current_language == "es_SP":
-    msg = "Hola, Mundo!"
-elif current_language == "fr_FR":
-    msg = "Bonjou, Monde!"
-elif current_language == "zh_CN":
-    msg = "Nǐ hǎo, shìjiè! (你好，世界！)"
-elif current_language == "mn_MN":
-    msg = "Sain baina uu, delkhi! (Сайн байна уу, дэлхий!)"
-
-print(msg)
+#  O(1) - constante
+print(msg[current_language])
