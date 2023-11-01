@@ -9,7 +9,7 @@ Have the LANG variable properly configured
 Ex:
     export LANG=pt_BR
 
-Ou informe atraves do CLI argument `--lang`
+Ou informe atraves do CLI argument `--lang=`
 
 Ou o usuário terá que digitar.
 
