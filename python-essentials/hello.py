@@ -9,9 +9,9 @@ Have the LANG variable properly configured
 Ex:
     export LANG=pt_BR
 
-Ou informe atraves do CLI argument `--lang=`
+Or enter the CLI argument `--lang=`
 
-Ou o usuário terá que digitar.
+Or the user has to type it in.
 
 Execution:
     python3 hello.py
