@@ -40,7 +40,14 @@ if arguments[0] == "read":
     
 if arguments[0] == "new":
     # criação da nota
-    title = arguments[1]  # TODO: Tratar exception
+    try:
+        title = arguments[1] 
+    except IndexError as e:
+        print(str(e))
+        print('You must specify a title')
+        print('Use new `your title`')
+        sys.exit(1)
+
     text = [
         f"{title}",
         input("tag: ").strip(),

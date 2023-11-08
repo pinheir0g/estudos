@@ -27,9 +27,16 @@ import sys
 arguments = {"lang": None, "count": 1}
 
 for arg in sys.argv[1:]:
-     # TODO: Tratar ValueError
+    try:
+        key, value = arg.split("=")
+    except ValueError as e:
+        # TODO: Utilizar logging
+        print(f"[ERROR] {str(e)}")
+        print("You need to use `=`")
+        print(f"You passed {arg}")
+        print("Try with --key=value")
+        sys.exit(1)
 
-    key, value = arg.split("=")
     key = key.lstrip("-").strip()
     value = value.strip()
 
@@ -62,7 +69,14 @@ msg = {"en_US": "Hello, World!",
        "zh_CN": "Nǐ hǎo, shìjiè!"
        }
 
-#  O(1) - constante
+#  EAFP
+try:
+    message = msg[current_language]
+except KeyError as e:
+    print(f"[ERROR] {str(e)}")
+    print(f"Language is invalid choose from: {list(msg.keys())}")
+    sys.exit(1)
+
 print(
-    msg[current_language] * int(arguments["count"])
+    message * int(arguments["count"])
     )

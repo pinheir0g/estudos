@@ -6,8 +6,8 @@ import sys
 
 try:
     names = open("names.txt").readlines()  # FileNotFoundError
-except FileNotFoundError as e:
-    print(f"[Error] {str(e)}.")
+except FileNotFoundError as e:  # capturando a exception
+    print(f"[Error] {str(e)}.") # tratando a exception
     sys.exit(1)
 
 try:

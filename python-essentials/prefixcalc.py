@@ -23,7 +23,7 @@ n1: 5
 n2: 4
 9
 
-Os resultados serão salvos em `infixcalc.log`
+Os resultados serão salvos em `prefixcalc.log`
 """
 __version__ = "0.1.0"
 
@@ -32,7 +32,6 @@ import os
 from datetime import datetime
 arguments = sys.argv[1:]
 
-# TODO: Exceptions
 if not arguments:
     operation = (input("operação: "))
     n1 = input("n1: ")
@@ -64,8 +63,11 @@ for num in nums:
     else:
         num = int(num)
     valid_nums.append(num)
-
-n1, n2 = valid_nums
+try:
+    n1, n2 = valid_nums
+except ValueError as e:
+    print(str(e))
+    sys.exit(1)
 
 operations = {
     "sum": n1 + n2,
@@ -76,12 +78,18 @@ operations = {
 
 result = operations[operation]
 
+print(f"O resutlado é {result}")
+
 path = os.curdir
-filepath = os.path.join(path, "infixcalc.log")
+filepath = os.path.join(path, "prefixcalc.log")
 timestamp = datetime.now().isoformat()
 user = os.getenv('USER', 'anonymous')
 
-with open(filepath, "a") as file_:
-    file_.write(f"{timestamp} - {user} - {operation},{n1},{n2} = {result}\n")
-
-print(f"O resutlado é {result}")
+try:
+    with open(filepath, "a") as file_:
+        file_.write(f"{timestamp} - {user} - {operation},{n1},{n2} = {result}\n")
+except PermissionError as e:
+     # TODO: logging
+    print(str(e))
+    sys.exit(1)
+    
