@@ -30,6 +30,25 @@ __version__ = "0.1.0"
 import sys
 import os
 from datetime import datetime
+import logging
+from logging import handlers
+
+log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
+log = logging.Logger("Logs.py", log_level)
+fh = handlers.RotatingFileHandler(
+    "prefixcalc_error.log", 
+    maxBytes=300, # 10**6 = 1mgb
+    backupCount=10
+    )
+fh.setLevel(log_level)
+fmt = logging.Formatter(
+    '%(asctime)s  %(name)s  %(levelname)s'
+    'l:%(lineno)d f:%(filename)s:  %(message)s'
+)
+fh.setFormatter(fmt)
+log.addHandler(fh)
+
+
 arguments = sys.argv[1:]
 
 if not arguments:
@@ -89,7 +108,5 @@ try:
     with open(filepath, "a") as file_:
         file_.write(f"{timestamp} - {user} - {operation},{n1},{n2} = {result}\n")
 except PermissionError as e:
-     # TODO: logging
-    print(str(e))
+    log.error("Permission Denied: %s", str(e))
     sys.exit(1)
-    

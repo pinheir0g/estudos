@@ -2,25 +2,39 @@
 
 import os
 import logging
+from logging import handlers
+
 
 # BOILERPLATE (codigo repetitivo)
 # TODO: usar função
 # TODO: usar lig (loguru)
 
 log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
+
 # nossa instancia
 log = logging.Logger("Logs.py", log_level)
+
 # level
-ch = logging.StreamHandler()    # Console/terminal/stderr
-ch.setLevel(log_level)
+#ch = logging.StreamHandler()    # Console/terminal/stderr
+#ch.setLevel(log_level)
+fh = handlers.RotatingFileHandler(
+    "meulog.log", 
+    maxBytes=300, # 10**6 = 1mgb
+    backupCount=10
+    )
+fh.setLevel(log_level)
+
 # formatacao
 fmt = logging.Formatter(
     '%(asctime)s %(name)s %(levelname)s'
     'l:%(lineno)d f:%(filename)s: %(message)s'
 )
-ch.setFormatter(fmt)
+#ch.setFormatter(fmt)
+fh.setFormatter(fmt)
+
 # destino
-log.addHandler(ch)
+#log.addHandler(ch)
+log.addHandler(fh)
 
 """
 log.debug("Mensagem pro dev, qe, sysadmin")
