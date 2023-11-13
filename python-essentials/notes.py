@@ -29,6 +29,10 @@ if arguments[0] not in cmds:
     print(f"Invalid command {arguments[0]}")
 
 if arguments[0] == "read":
+    try:
+        arg_tag = arguments[1].lower()
+    except IndexError:
+        arg_tag = input('Qual a tag: ').strip().lower()
     # leitura das notas
     for line in open(filepath):
         title, tag, text = line.split("\t")
@@ -42,11 +46,8 @@ if arguments[0] == "new":
     # criação da nota
     try:
         title = arguments[1] 
-    except IndexError as e:
-        print(str(e))
-        print('You must specify a title')
-        print('Use new `your title`')
-        sys.exit(1)
+    except IndexError:
+        title = input('Qual é o titilo: ').strip().title()
 
     text = [
         f"{title}",

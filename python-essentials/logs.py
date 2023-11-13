@@ -7,7 +7,7 @@ from logging import handlers
 
 # BOILERPLATE (codigo repetitivo)
 # TODO: usar função
-# TODO: usar lig (loguru)
+# TODO: usar lib (loguru)
 
 log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
 
