@@ -1,3 +1,4 @@
+#!usr/bin/env python3
 """
 Faça um programa de terminal que exibe ao usuário uma lista dos quartos disponiveis para alugar e o preço de cada quarto, esta informação está disponível em um arquivo de texto separado por virgulas.
 
@@ -61,19 +62,14 @@ except FileNotFoundError:
     logging.error("Arquivo quartos.txt não existe")
     sys.exit(1)
 
-
+# Programa principal
 print("{:-^40}".format("Reserva Hotel Pythonico"))
 print()
 
 if len(ocupados) == len(quartos):
     print("Hotel Lotado")
-    sys.exit(1)
+    sys.exit(0)
 nome = input("Digite seu nome: ").strip()
-
-
-if len(ocupados) == len(quartos):
-    print("Hotel Lotado")
-    sys.exit(1)
 
 print("{:-^40}".format("Lista de Quartos disponiveis"))
 print("-" * 40)
@@ -86,6 +82,7 @@ for codigo, dados in quartos.items():
 
 print("-" * 40)
 
+# Reserva
 try:
     num_quarto = int(input("Digite o número do quarto: ").strip())
     if not quartos[num_quarto]['disponivel']:
@@ -104,7 +101,6 @@ except ValueError:
     sys.exit(1)
 
 
-
 nome_quarto = quartos[num_quarto]["nome"]
 preco_quarto = quartos[num_quarto]['preço']
 disponivel = quartos[num_quarto]['disponivel']
@@ -112,6 +108,6 @@ total = preco_quarto * dias
 
 print(f"{nome} você escolheu o quarto {nome_quarto} e vai custar R$ {total:.2f}")
 
-
-with open("exercicio_reserva/reservas.txt", 'a') as file_:
-    file_.write(f"{nome}, {num_quarto}, {dias}\n")
+if input("Confirma? (digite y) ").strip().lower() in ("y", "yes", "sim", "s"):
+    with open("exercicio_reserva/reservas.txt", 'a') as file_:
+        file_.write(f"{nome}, {num_quarto}, {dias}\n")
